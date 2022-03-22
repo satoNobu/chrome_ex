@@ -1,9 +1,13 @@
 {
-  "manifest_version": 2,
-  "name": "Chrome Ex",
-  "version": "1",
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_title": "Helloを表示する"
+  "manifest_version":2,
+  "name":"Chrome ex page action",
+  "version":"1",
+  "permissions":["declarativeContent"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "page_action":{
+    "default_title":"satoshiiiブログのみ有効だよ",
+    "default_popup":"popup.html"
   }
 }
