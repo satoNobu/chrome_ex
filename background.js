@@ -1,14 +1,10 @@
-chrome.contextMenus.create({title: "hoge", onclick: test}, function(){
-    alert("コンテキストメニューが登録されました");
-});
+function hoge () {
+    alert("バックグラウンドの処理を呼び出しました");
+}
 
-function test(){alert("クリック")};
+chrome.runtime.onInstalled.addListener(piyo);
+chrome.runtime.onStartup.addListener(hoge);
 
-// ■ 専用のイベントリスナーの登録
-// chrome.contextMenus.create({title: "hoge"}, function(){
-//     alert("コンテキストメニュー登録完了");
-// });
-//
-// chrome.contextMenus.onClicked.addListener( function(){
-//     alert("onClickedイベントでクリック");
-// });
+function piyo() {
+    alert("インストール or 更新");
+}
