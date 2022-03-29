@@ -1,3 +1,5 @@
-var bgWindow = chrome.runtime.getBackgroundPage(function( backgroundPage ){
-    backgroundPage.hoge();
+chrome.runtime.sendMessage({
+    message: "AAAAAA"
+}, function(response) {
+    alert(response);
 });
