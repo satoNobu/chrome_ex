@@ -1,6 +1,9 @@
-chrome.runtime.onMessage.addListener(
-    function(request, sender, callback) {
-        callback(request.message);
+function backgroundFunction(){
+    chrome.runtime.sendMessage({
+        message: "BBBBBB"
+    }, function(response) {
+        alert('backでアラート表示');
+        alert(response);
         return true;
-    }
-);
+    });
+};
