@@ -9,5 +9,8 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "Helloを表示"
-  }
+  },
+  "permissions": [
+    "storage"
+  ]
 }

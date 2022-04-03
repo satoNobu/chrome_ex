@@ -1,9 +1,9 @@
-let port = chrome.runtime.connect({name: "TestChannel"});
-console.log('myscript読み込み')
-alert('メッセージを送信します')
-port.postMessage({msMessage: "メッセージ送信"});
+chrome.storage.local.get("hoge", function(items) {
+    console.log(items.hoge);
+    alert(items.hoge)
+});
 
-port.onMessage.addListener(function(msg) {
-    console.log(msg.answerMsg);
-    alert(msg.answerMsg)
+chrome.storage.local.get(null, function(items) {
+    console.log(items.piyo);
+    alert(items.piyo)
 });
