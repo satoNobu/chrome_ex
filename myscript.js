@@ -1,16 +1,9 @@
-chrome.runtime.onMessage.addListener(
-    function(request, sender, callback) {
-        alert('backから受け取り');
-        callback(request.message);
-        return true;
-    }
-);
+let port = chrome.runtime.connect({name: "TestChannel"});
+console.log('myscript読み込み')
+alert('メッセージを送信します')
+port.postMessage({msMessage: "メッセージ送信"});
 
-
-window.addEventListener('load', function() {
-    alert('load');
-    chrome.runtime.getBackgroundPage(function( backgroundPage ){
-        alert('back呼び出し');
-        backgroundPage.backgroundFunction();
-    });
+port.onMessage.addListener(function(msg) {
+    console.log(msg.answerMsg);
+    alert(msg.answerMsg)
 });

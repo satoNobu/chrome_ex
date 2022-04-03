@@ -1,9 +1,12 @@
-function backgroundFunction(){
-    chrome.runtime.sendMessage({
-        message: "BBBBBB"
-    }, function(response) {
-        alert('backでアラート表示');
-        alert(response);
-        return true;
-    });
-};
+console.log('back start')
+chrome.runtime.onConnect.addListener(function(port) {
+    if(port.name == "TestChannel"){
+        port.onMessage.addListener(function(msg) {
+            console.log('受信')
+            if(msg.msMessage == "メッセージ送信"){
+                alert('メッセージを受信しました')
+                port.postMessage({answerMsg: "メッセージ受信完了"});
+            }
+        });
+    }
+});
