@@ -2,12 +2,10 @@
   "manifest_version":2,
   "name":"Chrome ex page action",
   "version":"1",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_title": "Helloを表示"
-  }
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.co.jp/*"],
+      "js": ["jquery-3.6.0.min.js", "myscript.js"]
+    }
+  ]
 }
