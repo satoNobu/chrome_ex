@@ -1,9 +1,12 @@
 {
-  "manifest_version":2,
+  "manifest_version":3,
   "name":"Chrome ex page action",
   "version":"1",
-  "permissions":["declarativeContent"],
+  "permissions":["alarms", "storage", "activeTab", "scripting"],
   "background": {
-    "scripts": ["background.js"]
+    "service_worker":"background.js"
+  },
+  "action": {
+    "default_title": "Click Me"
   }
 }
